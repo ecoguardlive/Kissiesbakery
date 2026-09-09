@@ -1,0 +1,411 @@
+/* ==========================================================================
+   Kissie's Bakery — Stylesheet
+   Sections: Tokens, Base, Header/Nav, Hero, Sections (generic), About,
+             Case/Menu, Gallery/Carousel, Order steps, Contact, Footer,
+             Responsive
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
+:root{
+  --cocoa:#2B1810;
+  --cocoa-ink:#1C1410;
+  --gold:#C98A2C;
+  --gold-light:#E3B564;
+  --kente-red:#A3222D;
+  --kente-green:#2F5233;
+  --cream:#FBF3E7;
+  --cream-2:#F3E4CE;
+  --paper:#FFFDF9;
+  --max:1180px;
+}
+
+/* ---------- Base / reset ---------- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Archivo', sans-serif;
+  color:var(--cocoa-ink);
+  background:var(--paper);
+  line-height:1.55;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-0.01em;
+  margin:0;
+}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+/* Ribbon divider — striped like a pastry-box ribbon */
+.ribbon{
+  height:14px;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--gold) 0px, var(--gold) 22px,
+    var(--kente-red) 22px, var(--kente-red) 30px,
+    var(--kente-green) 30px, var(--kente-green) 38px
+  );
+}
+
+/* ---------- Header / Nav ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:var(--cocoa);
+  border-bottom:3px solid var(--gold);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px;
+  max-width:var(--max); margin:0 auto;
+}
+.wordmark{
+  color:var(--cream);
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:1.5rem;
+  letter-spacing:-0.01em;
+  display:flex; align-items:baseline; gap:8px;
+}
+.wordmark span{
+  font-style:italic;
+  font-weight:500;
+  color:var(--gold-light);
+  font-size:1rem;
+}
+nav.links{display:flex; gap:28px; font-size:0.95rem;}
+nav.links a{
+  color:var(--cream-2); text-decoration:none;
+  padding-bottom:3px; border-bottom:2px solid transparent;
+  transition:border-color .2s ease, color .2s ease;
+}
+nav.links a:hover{border-color:var(--gold); color:var(--paper);}
+.nav-toggle{display:none;}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  min-height:640px;
+  display:flex; align-items:flex-end;
+  background:linear-gradient(180deg, rgba(28,20,16,0.15) 0%, rgba(28,20,16,0.86) 88%),
+    url('https://commons.wikimedia.org/wiki/Special:FilePath/Freshly_baked_croissants.jpg') center/cover no-repeat;
+}
+.hero-inner{
+  padding:64px 0 56px;
+  max-width:640px;
+}
+.hero-eyebrow{
+  color:var(--gold-light);
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:1.15rem;
+  margin-bottom:10px;
+}
+.hero h1{
+  color:var(--paper);
+  font-size:clamp(2.6rem, 6vw, 4.4rem);
+  margin-bottom:20px;
+}
+.hero p{
+  color:var(--cream-2);
+  font-size:1.15rem;
+  max-width:480px;
+  margin-bottom:30px;
+}
+.btn-row{display:flex; flex-wrap:wrap; gap:14px;}
+.btn{
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:2px;
+  font-weight:600;
+  font-size:0.98rem;
+  text-decoration:none;
+  transition:transform .15s ease, background .2s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--gold); color:var(--cocoa-ink); border:none; cursor:pointer;}
+.btn-primary:hover{background:var(--gold-light);}
+.btn-outline{background:transparent; color:var(--paper); border:1.5px solid var(--paper);}
+.btn-outline:hover{background:rgba(255,255,255,0.1);}
+
+/* ---------- Generic section shell ---------- */
+section{padding:88px 0;}
+.section-head{max-width:620px; margin-bottom:52px;}
+.section-head h2{font-size:clamp(2rem, 4vw, 2.7rem); margin-bottom:16px;}
+.section-head p{color:#4a3a30; font-size:1.08rem;}
+
+/* ---------- About ---------- */
+.about{background:var(--cream);}
+.about-grid{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:56px;
+  align-items:center;
+}
+.about-grid img{
+  border-radius:2px;
+  box-shadow:14px 14px 0 var(--gold-light);
+}
+.about-text p{margin:0 0 18px; font-size:1.05rem; color:#3a2c22;}
+.signature{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--kente-red);
+  margin-top:8px;
+}
+
+/* ---------- Case / menu ---------- */
+.case{background:var(--paper);}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  grid-auto-rows:150px;
+  gap:18px;
+}
+.case-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:2px;
+  background:var(--cocoa);
+}
+.case-item img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .5s ease;
+}
+.case-item:hover img{transform:scale(1.06);}
+.case-item .tag{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:18px 20px 16px;
+  background:linear-gradient(0deg, rgba(20,13,9,0.92) 0%, rgba(20,13,9,0) 100%);
+  color:var(--paper);
+}
+.case-item .tag h3{font-size:1.15rem; margin-bottom:4px; color:var(--paper);}
+.case-item .tag p{font-size:0.86rem; color:var(--cream-2); margin:0;}
+.case-item.feature{grid-column:span 3; grid-row:span 3;}
+.case-item.feature .tag h3{font-size:1.5rem;}
+.case-item.tall{grid-column:span 3; grid-row:span 2;}
+.case-item.wide{grid-column:span 3; grid-row:span 2;}
+.case-item.small{grid-column:span 2; grid-row:span 1;}
+.case-item.med{grid-column:span 4; grid-row:span 1;}
+
+/* ==========================================================================
+   Gallery / "Sweet Moments" auto-scrolling carousel
+   ========================================================================== */
+.gallery{
+  background:var(--cocoa-ink);
+  overflow:hidden;
+}
+.gallery .section-head h2{color:var(--paper);}
+.gallery .section-head p{color:var(--cream-2);}
+.gallery .section-head{margin-left:28px;}
+
+.carousel{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+          mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.carousel-track{
+  display:flex;
+  width:max-content;
+  gap:22px;
+  padding:4px 0;
+  animation:carousel-scroll 42s linear infinite;
+}
+/* Pause on hover or when the user has requested it via the pause button */
+.carousel:hover .carousel-track,
+.carousel.is-paused .carousel-track{
+  animation-play-state:paused;
+}
+@keyframes carousel-scroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); } /* track content is duplicated x2, so -50% = one full loop */
+}
+
+.carousel-card{
+  position:relative;
+  flex:none;
+  width:260px;
+  height:340px;
+  border-radius:6px;
+  overflow:hidden;
+  background:var(--cocoa);
+  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+  cursor:pointer;
+}
+.carousel-card img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .5s ease;
+}
+.carousel-card:hover img{transform:scale(1.08);}
+.carousel-card .cap{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:14px 16px 12px;
+  background:linear-gradient(0deg, rgba(15,10,7,0.92) 0%, rgba(15,10,7,0) 100%);
+  color:var(--paper);
+  font-size:0.92rem;
+  font-weight:600;
+}
+
+.carousel-controls{
+  display:flex; align-items:center; gap:14px;
+  margin-top:26px;
+}
+.carousel-btn{
+  width:42px; height:42px;
+  border-radius:50%;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  color:var(--gold-light);
+  font-size:1.1rem;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease, color .2s ease;
+}
+.carousel-btn:hover{background:var(--gold); color:var(--cocoa-ink);}
+.carousel-hint{
+  font-size:0.86rem;
+  color:var(--cream-2);
+  opacity:0.75;
+}
+
+/* Lightbox for tapping/clicking a gallery photo */
+.lightbox{
+  position:fixed; inset:0; z-index:200;
+  background:rgba(10,7,5,0.92);
+  display:flex; align-items:center; justify-content:center;
+  padding:32px;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease;
+}
+.lightbox.is-open{opacity:1; pointer-events:auto;}
+.lightbox img{
+  max-width:min(700px, 90vw);
+  max-height:82vh;
+  border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+.lightbox-close{
+  position:absolute; top:24px; right:28px;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1.5px solid var(--gold-light);
+  background:rgba(255,255,255,0.05);
+  color:var(--paper);
+  font-size:1.3rem;
+  cursor:pointer;
+}
+.lightbox-cap{
+  position:absolute; bottom:36px; left:0; right:0;
+  text-align:center;
+  color:var(--cream-2);
+  font-size:0.95rem;
+}
+
+/* ---------- How to order ---------- */
+.order{background:var(--cocoa); color:var(--cream-2);}
+.order .section-head h2{color:var(--paper);}
+.order .section-head p{color:var(--cream-2);}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
+}
+.step{
+  border-top:3px solid var(--gold);
+  padding-top:20px;
+}
+.step .num{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  color:var(--gold-light);
+  font-size:1.6rem;
+  display:block;
+  margin-bottom:10px;
+}
+.step h3{color:var(--paper); font-size:1.2rem; margin-bottom:10px;}
+.step p{color:var(--cream-2); font-size:0.98rem; margin:0;}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--cream);}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:60px;
+}
+form{display:flex; flex-direction:column; gap:16px;}
+label{font-size:0.85rem; font-weight:600; color:#5a4636; margin-bottom:6px; display:block;}
+input, textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1.5px solid #d8c4a3;
+  border-radius:2px;
+  font-family:inherit;
+  font-size:0.98rem;
+  background:var(--paper);
+  color:var(--cocoa-ink);
+}
+input:focus, textarea:focus{outline:2px solid var(--gold); border-color:var(--gold);}
+textarea{resize:vertical; min-height:120px;}
+.field-note{font-size:0.82rem; color:#7a6957; margin-top:-8px;}
+
+.find-us h3{font-size:1.3rem; margin-bottom:18px;}
+.contact-line{
+  display:flex; align-items:center; gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #e3d2b8;
+  font-size:1rem;
+}
+.contact-line .ico{
+  width:34px; height:34px; flex:none;
+  border-radius:50%;
+  background:var(--cocoa);
+  color:var(--gold-light);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+}
+.social-list{list-style:none; margin:0; padding:0;}
+.social-list a{text-decoration:none; color:var(--cocoa-ink); font-weight:600;}
+.social-list a:hover{color:var(--kente-red);}
+.placeholder-note{
+  margin-top:22px;
+  font-size:0.86rem;
+  color:#7a6957;
+  background:var(--cream-2);
+  padding:14px 16px;
+  border-left:3px solid var(--gold);
+}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--cocoa-ink);
+  color:var(--cream-2);
+  padding:40px 0 30px;
+  text-align:center;
+  font-size:0.9rem;
+}
+footer .wordmark{justify-content:center; margin-bottom:10px;}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+  nav.links{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-grid img{order:-1;}
+  .case-grid{grid-template-columns:repeat(2, 1fr); grid-auto-rows:180px;}
+  .case-item.feature{grid-column:span 2; grid-row:span 2;}
+  .case-item.tall,.case-item.wide,.case-item.med{grid-column:span 2; grid-row:span 1;}
+  .case-item.small{grid-column:span 1;}
+  .gallery .section-head{margin-left:0;}
+  .carousel-card{width:200px; height:270px;}
+  .steps{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .carousel-track{animation:none;}
+}
