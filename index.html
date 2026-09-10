@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kissie's Bakery — Fresh pastries, cakes & pies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="wordmark">Kissie's Bakery <span>est. Accra</span></div>
+    <nav class="links">
+      <a href="#menu">The case</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#order">Ordering</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow">A Ghanaian bakery, built on flour, butter and patience</div>
+    <h1>Fresh from Kissie's oven, straight to your table.</h1>
+    <p>Meat pies, chin chin, cupcakes, doughnuts and celebration cakes — baked in small batches every morning, no shortcuts taken.</p>
+    <div class="btn-row">
+      <a href="#contact" class="btn btn-primary">Place an order</a>
+      <a href="#menu" class="btn btn-outline">See what's in the case</a>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon"></div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fresh_made_bread_06.jpg" alt="Fresh loaves cooling at Kissie's Bakery">
+    <div class="about-text">
+      <h2 style="margin-bottom:22px;">Meet Kissie</h2>
+      <p>Kissie started baking the way most Ghanaian bakers do — in a home kitchen, selling meat pies and cupcakes to neighbours and church members on weekends. Word travelled faster than the trays could come out of the oven.</p>
+      <p>Today, Kissie's Bakery still runs on that same standard: real butter, proper proofing time, and nothing pulled out early to meet a deadline. Every pie, loaf and cake is made to be picked up warm, not just fresh.</p>
+      <p class="signature">— Kissie</p>
+    </div>
+  </div>
+</section>
+
+<section class="case" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's in the case today</h2>
+      <p>A working bakery's menu changes with the week, but these are the trays customers come back for.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-item feature">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Freshly_baked_croissants.jpg" alt="Freshly baked croissants">
+        <div class="tag">
+          <h3>Morning pastries</h3>
+          <p>Butter croissants, baked fresh before sunrise, sold out most days by ten.</p>
+        </div>
+      </div>
+      <div class="case-item tall">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strawberry_layer_cake.jpg" alt="Layered celebration cake">
+        <div class="tag">
+          <h3>Celebration cakes</h3>
+          <p>Birthdays, weddings, naming ceremonies — made to order with two days' notice.</p>
+        </div>
+      </div>
+      <div class="case-item wide">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chocolate_cupcakes.jpg" alt="Chocolate cupcakes">
+        <div class="tag">
+          <h3>Cupcakes</h3>
+          <p>Sold by the box of six or twelve, chocolate and vanilla always on hand.</p>
+        </div>
+      </div>
+      <div class="case-item med">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Variety_of_doughnuts.jpg" alt="Assorted glazed doughnuts">
+        <div class="tag">
+          <h3>Doughnuts</h3>
+          <p>Glazed and filled, made in small batches through the morning.</p>
+        </div>
+      </div>
+      <div class="case-item small">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bowl_of_chin-chin.jpg" alt="A bowl of chin chin">
+        <div class="tag">
+          <h3>Chin chin</h3>
+          <p>Sold by the bag, a customer favourite for travel and gifting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Sweet Moments — shuffled, auto-scrolling photo carousel
+     Built from real order/customer photos supplied by the client.
+     Markup only here; the shuffle + rendering happens in script.js so the
+     order is randomised fresh on every page load.
+     ========================================================================== -->
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <h2>Sweet moments from the counter</h2>
+    <p>A rolling look at recent bakes and cakes — real orders, straight from the kitchen.</p>
+  </div>
+
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Cards are generated by script.js: images are shuffled, then
+           rendered twice back-to-back so the scrolling loop is seamless. -->
+    </div>
+  </div>
+
+  <div class="wrap carousel-controls">
+    <button type="button" class="carousel-btn" id="carouselPrev" aria-label="Scroll gallery backward">‹</button>
+    <button type="button" class="carousel-btn" id="carouselPause" aria-label="Pause the photo carousel">❚❚</button>
+    <button type="button" class="carousel-btn" id="carouselNext" aria-label="Scroll gallery forward">›</button>
+    <span class="carousel-hint">Tap a photo to view it larger · hover to pause</span>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How ordering works</h2>
+      <p>No app, no account — just a message and a pickup time.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">One</span>
+        <h3>Send a message</h3>
+        <p>Reach Kissie's Bakery on WhatsApp, Instagram or email with what you'd like and when you need it.</p>
+      </div>
+      <div class="step">
+        <span class="num">Two</span>
+        <h3>Confirm the details</h3>
+        <p>For everyday trays, next-day pickup is usually fine. Custom cakes need at least 48 hours' notice.</p>
+      </div>
+      <div class="step">
+        <span class="num">Three</span>
+        <h3>Pick up or arrange delivery</h3>
+        <p>Collect from the bakery counter, or ask about delivery within Accra for an added fee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:30px;">
+        <h2>Get in touch</h2>
+        <p>Write in with your order, a question, or a custom cake request — Kissie reads every message.</p>
+      </div>
+      <form id="contactForm" action="https://formspree.io/f/xbgjwakj" method="POST">
+        <div>
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <div class="field-note">We'll reply to whatever address you type here.</div>
+        </div>
+        <div>
+          <label for="message">What can we bake for you?</label>
+          <textarea id="message" name="message" placeholder="Tell us the occasion, the date you need it, and how many people it's for." required></textarea>
+        </div>
+        <!-- Honeypot field: hidden from real visitors, catches simple form-spam bots -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true">
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+    <div class="find-us">
+      <h3>Find Kissie's Bakery</h3>
+      <div class="contact-line"><span class="ico">@</span> hello@kissiesbakery.com</div>
+      <div class="contact-line"><span class="ico">W</span> +233 24 000 0000 (WhatsApp)</div>
+      <div class="contact-line"><span class="ico">◎</span> Accra, Ghana</div>
+      <ul class="social-list" style="margin-top:20px;">
+        <li class="contact-line"><span class="ico">IG</span> <a href="https://instagram.com/kissiesbakery" target="_blank" rel="noopener">instagram.com/kissiesbakery</a></li>
+        <li class="contact-line"><span class="ico">FB</span> <a href="https://facebook.com/kissiesbakery" target="_blank" rel="noopener">facebook.com/kissiesbakery</a></li>
+        <li class="contact-line"><span class="ico">TT</span> <a href="https://tiktok.com/@kissiesbakery" target="_blank" rel="noopener">tiktok.com/@kissiesbakery</a></li>
+      </ul>
+      <div class="placeholder-note">
+        The phone number, email address and social links above are placeholders. Swap them for Kissie's real handles and contact details before this page goes live.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark" style="color:var(--cream-2);">Kissie's Bakery</div>
+    <p>Fresh pastries, cakes and pies — baked daily in Accra, Ghana.</p>
+  </div>
+</footer>
+
+<!-- Lightbox overlay for the gallery — one shared instance, filled in by script.js -->
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo">✕</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
